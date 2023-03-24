@@ -1,3 +1,12 @@
+/***********************
+
+Len Shi vision 
+date   2023/3/24
+idServer 圖傳
+version 5
+
+***********************/
+
 #include "esp_camera.h"
 #include "Arduino.h"
 #include "soc/soc.h"           // Disable brownour problems
@@ -76,7 +85,7 @@ byte marker[7]={0x76,0x00,0x32,0x00,0x00,0x00,0x0a};
 byte marker2[7]={0x00,0x0a,0x76,0x00,0x32,0x00,0x00};
 void loop() {
   bool takePicture=1;
-  while (Serial.available()) {                         // Wait for the Receiver to get the characters
+  while (Serial.available()) {                  // Wait for the Receiver to get the characters
     takePicture = Serial.read();                // Display the Receivers characters  
 
       camera_fb_t * fb = NULL;
@@ -85,7 +94,7 @@ void loop() {
       //Serial.write(marker,7);
       Serial.write(fb->buf,fb->len); 
       //Serial.write(marker2,7);
-      //Comm.write(fb->buf, fb->len);               // payload (image), payload length   SENT Via Serial to ESP32
+      //Comm.write(fb->buf, fb->len);           // payload (image), payload length   SENT Via Serial to ESP32
       esp_camera_fb_return(fb);
       
     break;
