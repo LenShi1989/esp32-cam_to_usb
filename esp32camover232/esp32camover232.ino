@@ -3,7 +3,7 @@
 Len Shi vision 
 date   2023/3/24
 idServer 圖傳
-version 8
+version 10
 
 ***********************/
 
